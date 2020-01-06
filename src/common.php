@@ -2177,7 +2177,7 @@ function cmf_get_app_config_file($app, $file)
         default:
             $configFile = APP_PATH . $app . "/{$file}.php";
             if (!file_exists($configFile)) {
-                $configFile = Env::get('root_path') . "vendor/thinkcmf/cmf-app/src/{$app}/{$file}.php";
+                $configFile = Env::get('root_path') . "vendor/".CMF_VENDOR."/cmf-app/src/{$app}/{$file}.php";
             }
     }
 

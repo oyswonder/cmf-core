@@ -189,6 +189,11 @@ class App extends Container
             $this->configPath = CONFIG_PATH;
         }
 
+        // 定义 CMF 的提供商
+        if (!defined('CMF_VENDOR')) {
+            define('CMF_VENDOR', 'oyswonder');
+        }
+
         static::setInstance($this);
 
         $this->instance('app', $this);
@@ -322,10 +327,10 @@ class App extends Container
 
                     if ($this->namespace == 'app' || $this->namespace == 'api') {
                         foreach ($mainConfigNames as $configName) {
-                            $this->config->load(CMF_ROOT . "vendor/thinkcmf/cmf-{$this->namespace}/src/" . $configName . $this->configExt, $configName);
+                            $this->config->load(CMF_ROOT . "vendor/".CMF_VENDOR."/cmf-{$this->namespace}/src/" . $configName . $this->configExt, $configName);
                         }
 
-                        $tagsFile = CMF_ROOT . "vendor/thinkcmf/cmf-{$this->namespace}/src/" . 'tags.php';
+                        $tagsFile = CMF_ROOT . "vendor/".CMF_VENDOR."/cmf-{$this->namespace}/src/" . 'tags.php';
                         if (is_file($tagsFile)) {
                             $tags = include $tagsFile;
                             if (is_array($tags)) {
@@ -620,7 +625,7 @@ class App extends Container
         }
 
         if ($this->namespace == 'api') {
-            $rules = include CMF_ROOT . 'vendor/thinkcmf/cmf-api/src/route.php';
+            $rules = include CMF_ROOT . 'vendor/'.CMF_VENDOR.'/cmf-api/src/route.php';
             if (is_array($rules)) {
                 $this->route->import($rules);
             }
