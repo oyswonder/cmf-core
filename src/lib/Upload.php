@@ -342,6 +342,7 @@ class Upload
                 $result = $storage->upload($arrInfo["file_path"], $uploadPath . $arrInfo["file_path"], $fileType);
                 if (!empty($result)) {
                     return array_merge([
+                        'file_key'    => $arrInfo["file_key"],
                         'filepath'    => $arrInfo["file_path"],
                         "name"        => $arrInfo["filename"],
                         'id'          => $strId,
@@ -354,6 +355,7 @@ class Upload
                 $url        = $fileType == 'image' ? $storage->getImageUrl($arrInfo["file_path"], $watermark['styles_watermark']) : $storage->getFileDownloadUrl($arrInfo["file_path"]);
                 //测试ing
                 return [
+                    'file_key'    => $arrInfo["file_key"],
                     'filepath'    => $arrInfo["file_path"],
                     "name"        => $arrInfo["filename"],
                     'id'          => $strId,
@@ -366,6 +368,7 @@ class Upload
         }
 
         return [
+            'file_key'    => $arrInfo["file_key"],
             'filepath'    => $arrInfo["file_path"],
             "name"        => $arrInfo["filename"],
             'id'          => $strId,
