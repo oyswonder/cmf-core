@@ -25,12 +25,12 @@ class AdminBaseController extends BaseController
             $user = Db::name('user')->where('id', $sessionAdminId)->find();
 
             if (!$this->checkAccess($sessionAdminId)) {
-                $this->error("您没有访问权限！");
+                $this->error(lang('NO_ACCESS'));
             }
             $this->assign("admin", $user);
         } else {
             if ($this->request->isPost()) {
-                $this->error("您还没有登录！", url("admin/public/login"));
+                $this->error(lang('NOT_LOGGED_IN'), url("admin/public/login"));
             } else {
                 return $this->redirect(url("admin/Public/login"));
             }

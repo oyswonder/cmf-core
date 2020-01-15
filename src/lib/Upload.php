@@ -72,7 +72,7 @@ class Upload
             $extensions                = $uploadSetting['file_types'][$arrData["filetype"]]['extensions'];
             $fileTypeUploadMaxFileSize = $uploadSetting['file_types'][$fileType]['upload_max_filesize'];
         } else {
-            $this->error = '上传文件类型配置错误！';
+            $this->error = 'File type configuration error!';
             return false;
         }
 
@@ -105,7 +105,7 @@ class Upload
         $strFileExtension = strtolower(cmf_get_file_extension($originalName));
 
         if (!in_array($strFileExtension, $arrAllowedExtensions) || $strFileExtension == 'php') {
-            $this->error = "非法文件类型！";
+            $this->error = 'Incorrect file type';
             return false;
         }
 
@@ -136,13 +136,13 @@ class Upload
         $chunks      = $this->request->param("chunks", 1, "intval");//isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 1;
 
         if (!$fileImage->isValid()) {
-            $this->error = "非法文件！";
+            $this->error = 'Incorrect file!';
             return false;
         }
 
         if ($cleanupTargetDir) {
             if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
-                $this->error = "Failed to open temp directory！";
+                $this->error = 'Failed to open temp directory！';
                 return false;
             }
 
@@ -160,12 +160,12 @@ class Upload
 
         // Open temp file
         if (!$out = @fopen($targetDir . "{$strFilePath}_{$chunk}.parttmp", "wb")) {
-            $this->error = "上传文件临时目录不可写" . $targetDir;
+            $this->error = 'Temporary directory is not writable: ' . $targetDir;
             return false;
         }
         // Read binary input stream and append it to temp file
-        if (!$in = @fopen($fileImage->getInfo("tmp_name"), "rb")) {
-            $this->error = "Failed to open input stream！";
+        if (!$in = @fopen($fileImage->getInfo('tmp_name'), 'rb')) {
+            $this->error = 'Failed to open input stream！';
             return false;
         }
 
@@ -212,7 +212,7 @@ class Upload
 
         // 合并临时文件
         if (!$out = @fopen($strSaveFilePath, "wb")) {
-            $this->error = "上传目录不可写";
+            $this->error = 'Directory is not writable';
             return false;
         }
 

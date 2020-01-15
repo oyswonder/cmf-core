@@ -235,7 +235,7 @@ hello;
         $userId = cmf_get_current_user_id();
         if (empty($userId)) {
             if ($this->request->isAjax()) {
-                $this->error("您尚未登录", cmf_url("user/Login/index"));
+                $this->error(lang('NOT_LOGGED_IN'), cmf_url("user/Login/index"));
             } else {
                 $this->redirect(cmf_url("user/Login/index"));
             }

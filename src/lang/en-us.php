@@ -51,7 +51,16 @@ return [
     "EDIT_SUCCESS"            => 'Save success！',
     "EDIT_FAILED"             => 'Save failed！',
     "NO_DATA"                 => 'No data!',
-    "MOBILE"                  => 'Mobile'
+    "MOBILE"                  => 'Mobile',
 
-
+    'TPL_AUTOMATIC_PAGE' => 'Automatic page',
+    'TPL_PAGE_REDIRECT' => 'redirect',
+    'TPL_PLEASE_WAIT' => 'Please wait',
+    'TPL_PAGE_REDIRECT_TIPS' => 'Page Redirect',
+    'NO_ACCESS' => 'You do not have access!',
+    'NOT_LOGGED_IN' => 'You are not logged in!',
+    'LOGIN_HAS_EXPIRED' => 'Login has expired!',
+    'INCORRECT_VERIFICATION_CODE' => 'Incorrect verification code!',
+    'VERIFICATION_CODE_HAS_EXPIRED' => 'Verification code has expired, please get the verification code first!',
+    'PLEASE_GET_A_VERIFICATION_CODE_FIRST' => 'Please get a verification code first!',
 ];

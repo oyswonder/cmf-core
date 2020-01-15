@@ -1360,7 +1360,7 @@ function cmf_get_verification_code($account, $length = 6)
     if (empty($account)) return false;
     $verificationCodeQuery = Db::name('verification_code');
     $currentTime           = time();
-    $maxCount              = 5;
+    $maxCount              = 10;
     $findVerificationCode  = $verificationCodeQuery->where('account', $account)->find();
     $result                = false;
     if (empty($findVerificationCode)) {
@@ -1467,14 +1467,14 @@ function cmf_check_verification_code($account, $code, $clear = false)
                     Db::name('verification_code')->where('account', $account)->update(['code' => '']);
                 }
             } else {
-                return "验证码不正确!";
+                return lang('INCORRECT_VERIFICATION_CODE');
             }
         } else {
-            return "验证码已经过期,请先获取验证码!";
+            return lang('VERIFICATION_CODE_HAS_EXPIRED');
         }
 
     } else {
-        return "请先获取验证码!";
+        return lang('PLEASE_GET_A_VERIFICATION_CODE_FIRST');
     }
 
     return "";
