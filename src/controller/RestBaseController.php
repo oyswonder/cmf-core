@@ -114,7 +114,9 @@ class RestBaseController
         $user = Db::name('user_token')
             ->alias('a')
             ->field('b.*')
-            ->where(['token' => $token, 'device_type' => $deviceType])
+            ->where('expire_time', '>', time())
+            ->where('token', $token)
+            ->where('device_type', $deviceType)
             ->join('__USER__ b', 'a.user_id = b.id')
             ->find();
 
@@ -286,7 +288,7 @@ class RestBaseController
     public function getUserId()
     {
         if (empty($this->userId)) {
-            $this->error(['code' => 10001, 'msg' => '用户未登录']);
+            $this->error(['code' => 10001, 'msg' => lang('NOT_LOGGED_IN')]);
         }
         return $this->userId;
 
