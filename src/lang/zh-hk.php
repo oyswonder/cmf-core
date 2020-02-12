@@ -9,7 +9,7 @@
 // | Author: Dean <zxxjjforever@163.com>
 // +----------------------------------------------------------------------
 return [
-    'SAVE'                     => '保存',
+    'SAVE'                     => '儲存',
     'CLOSE'                    => '關閉',
     'OPEN'                     => '開啓',
     'ENABLED'                  => '開啓',
@@ -45,11 +45,11 @@ return [
     'HIDDEN'                   => '隱藏',
     'HIDE'                     => '隱藏',
     'DELETE_CONFIRM_MESSAGE'   => '你確定刪除嗎？',
-    'SETTING'                  => '設置',
+    'SETTING'                  => '設定',
     'ADD_SUCCESS'              => '添加成功！',
     'ADD_FAILED'               => '添加失敗！',
-    'EDIT_SUCCESS'             => '保存成功！',
-    'EDIT_FAILED'              => '保存失敗！',
+    'EDIT_SUCCESS'             => '儲存成功！',
+    'EDIT_FAILED'              => '儲存失敗！',
     'NO_DATA'                  => '沒有數據',
     'MOBILE'                   => '手機',
     'SENDER_NAME'              => '發件人',
